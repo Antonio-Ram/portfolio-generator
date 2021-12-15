@@ -38,7 +38,7 @@ const promptProject = portfolioData => {
       =================
       Add a New Project
       =================
-      `)};
+      `);
       return inquirer.prompt([
         {
           type: 'input',
@@ -74,13 +74,15 @@ const promptProject = portfolioData => {
           default: false
         }
       ]).then(projectData => {
-        portfolioData.Projects.push(projectData);
+        portfolioData.projects.push(projectData);
         if (projectData.confirmAddProject) {
           return promptProject(portfolioData);
         } else {
           return portfolioData;
         }
   });
+};
+
   promptUser()
   .then(promptProject)
   .then(portfolioData => {
